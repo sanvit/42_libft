@@ -6,47 +6,51 @@
 /*   By: jaewokim <jaewokim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:43:58 by jaewokim          #+#    #+#             */
-/*   Updated: 2022/02/05 10:43:59 by jaewokim         ###   ########.fr       */
+/*   Updated: 2022/02/19 11:29:55 by jaewokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+static unsigned int	get_length(int n)
 {
-	char	*str;
-	int		i;
-	int		sign;
-	int		j;
+	unsigned int	i;
 
 	i = 0;
-	sign = 0;
+	n /= 10;
+	while (n)
+	{
+		i++;
+		n /= 10;
+	}
+	return (i + 1);
+}
+
+char	*ft_itoa(int n)
+{
+	char			*str;
+	unsigned int	i;
+	int				sign;
+
+	i = get_length(n);
 	if (n == -2147483648)
-		return ("-2147483648");
-	if (n == 0)
-		return ("0");
+		return (ft_strdup("-2147483648"));
 	if (n < 0)
 	{
-		sign = 1;
+		sign = -1;
 		n = -n;
 		i++;
 	}
-	j = n;
-	while (n > 0)
-	{
-		i++;
-		n = n / 10;
-	}
 	str = (char *)malloc(sizeof(char) * (i + 1));
-	if (str == NULL)
-		return (NULL);
+	if (!str)
+		return (0);
 	str[i] = '\0';
 	while (i--)
 	{
-		str[i] = (j % 10) + '0';
-		j = j / 10;
+		str[i] = (n % 10) + '0';
+		n /= 10;
 	}
-	if (sign == 1)
+	if (sign == -1)
 		str[0] = '-';
 	return (str);
 }
