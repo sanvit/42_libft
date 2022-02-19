@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewokim <jaewokim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/12 20:32:17 by jaewokim          #+#    #+#             */
-/*   Updated: 2022/01/12 00:40:54 by jaewokim         ###   ########.fr       */
+/*   Created: 2022/02/05 10:45:47 by jaewokim          #+#    #+#             */
+/*   Updated: 2022/02/05 10:45:48 by jaewokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	unsigned char	*dst_copy;
-	unsigned char	*src_copy;
+	t_list *new_lst;
+	t_list *tmp;
 
-	dst_copy = (unsigned char *)dst;
-	src_copy = (unsigned char *)src;
-	while (n--)
-		*dst_copy++ = *src_copy++;
-	return (dst);
+	if (!lst || !f || !del)
+		return (0);
+	new_lst = 0;
+	while (lst)
+	{
+		tmp = ft_lstnew((*f)(lst->content));
+		if (!tmp)
+		{
+			ft_lstclear(&new_lst, del);
+			return (0);
+		}
+		ft_lstadd_back(&new_lst, tmp);
+		tmp = tmp->next;
+		lst = lst->next;
+	}
+	return (new_lst);
 }

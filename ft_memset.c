@@ -9,8 +9,9 @@
 /*   Updated: 2021/12/12 18:20:52 by jaewokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-void	*ft_memset(void *b, int c, unsigned int len)
+void	*ft_memset(void *b, int c, size_t len)
 {
 	unsigned char	*ptr;
 

@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaewokim <jaewokim@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: jaewokim <jaewokim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/12 16:46:29 by jaewokim          #+#    #+#             */
-/*   Updated: 2021/12/12 16:46:31 by jaewokim         ###   ########.fr       */
+/*   Created: 2022/02/05 10:44:57 by jaewokim          #+#    #+#             */
+/*   Updated: 2022/02/05 10:44:58 by jaewokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_isalpha(int c)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-	{
-		return (1);
-	}
-	return (0);
+	del(lst->content);
+	free(lst);
 }

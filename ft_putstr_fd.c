@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaewokim <jaewokim@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: jaewokim <jaewokim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/12 16:46:29 by jaewokim          #+#    #+#             */
-/*   Updated: 2021/12/12 16:46:31 by jaewokim         ###   ########.fr       */
+/*   Created: 2022/02/05 10:47:56 by jaewokim          #+#    #+#             */
+/*   Updated: 2022/02/05 10:47:59 by jaewokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_isalpha(int c)
+void	ft_putstr_fd(char const *s, int fd)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-	{
-		return (1);
-	}
-	return (0);
+	write(fd, s, ft_strlen(s));
 }

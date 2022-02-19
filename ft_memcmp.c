@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaewokim <jaewokim@student.42seoul.>       +#+  +:+       +#+        */
+/*   By: jaewokim <jaewokim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/12 16:46:29 by jaewokim          #+#    #+#             */
-/*   Updated: 2021/12/12 16:46:31 by jaewokim         ###   ########.fr       */
+/*   Created: 2022/02/05 10:46:37 by jaewokim          #+#    #+#             */
+/*   Updated: 2022/02/05 10:46:38 by jaewokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_isalpha(int c)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+	unsigned char	*s1_c;
+	unsigned char	*s2_c;
+	size_t			i;
+
+	i = 0;
+	s1_c = (unsigned char *)s1;
+	s2_c = (unsigned char *)s2;
+	while (n--)
 	{
-		return (1);
+		if ((s1_c[i] != s2_c[i]) || (s1_c[i] == '\0'))
+			return (s1_c[i] - s2_c[i]);
+		i++;
 	}
 	return (0);
 }

@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewokim <jaewokim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/12 20:32:17 by jaewokim          #+#    #+#             */
-/*   Updated: 2022/01/12 00:40:54 by jaewokim         ###   ########.fr       */
+/*   Created: 2022/02/05 10:49:57 by jaewokim          #+#    #+#             */
+/*   Updated: 2022/02/05 10:49:58 by jaewokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	unsigned char	*dst_copy;
-	unsigned char	*src_copy;
+	size_t i;
+	size_t src_len;
 
-	dst_copy = (unsigned char *)dst;
-	src_copy = (unsigned char *)src;
-	while (n--)
-		*dst_copy++ = *src_copy++;
-	return (dst);
+	i = 0;
+	if (!dst || !src)
+		return (0);
+	src_len = ft_strlen(src);
+	if (!dstsize)
+		return (src_len);
+	while (src[i] != '\0' && i < dstsize)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	if (dstsize < src_len)
+		dst[dstsize - 1] = '\0';
+	else if (dstsize != 0)
+		dst[i] = '\0';
+	return (src_len);
 }

@@ -9,8 +9,9 @@
 /*   Updated: 2021/12/12 20:30:42 by jaewokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-void	ft_bzero(void *s, unsigned int n)
+void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*p;
 

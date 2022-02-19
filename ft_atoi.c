@@ -1,24 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewokim <jaewokim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/12 20:32:17 by jaewokim          #+#    #+#             */
-/*   Updated: 2022/01/12 00:40:54 by jaewokim         ###   ########.fr       */
+/*   Created: 2022/02/05 10:43:05 by jaewokim          #+#    #+#             */
+/*   Updated: 2022/02/05 10:43:06 by jaewokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int ft_atoi(const char *nptr)
 {
-	unsigned char	*dst_copy;
-	unsigned char	*src_copy;
+	int i;
+	int sign;
+	long n;
 
-	dst_copy = (unsigned char *)dst;
-	src_copy = (unsigned char *)src;
-	while (n--)
-		*dst_copy++ = *src_copy++;
-	return (dst);
+	i = 0;
+	sign = 1;
+	n = 0;
+	while ((nptr[i] >= '\t' && nptr[i] <= '\r') || nptr[i] == ' ')
+		i++;
+	if ((nptr[i] == '-' || nptr[i] == '+'))
+	{
+		if (nptr[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		n = n * 10 + (nptr[i] - '0');
+		i++;
+	}
+	return (int)(n * sign);
 }
