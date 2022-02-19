@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-static int ft_count_words(char const *s, char c)
+static int	ft_count_words(char const *s, char c)
 {
-	unsigned int num;
-	unsigned int i;
-	char prev;
+	unsigned int	num;
+	unsigned int	i;
+	char			prev;
 
 	i = 0;
 	num = 0;
@@ -31,9 +31,9 @@ static int ft_count_words(char const *s, char c)
 	return (num);
 }
 
-static int ft_count_word_len(char const *s, char c, unsigned int i)
+static int	ft_count_word_len(char const *s, char c, unsigned int i)
 {
-	unsigned int len;
+	unsigned int	len;
 
 	len = 0;
 	while (s[i + len] != c && s[i + len])
@@ -41,9 +41,9 @@ static int ft_count_word_len(char const *s, char c, unsigned int i)
 	return (len);
 }
 
-static void ft_split_free(char **str)
+static void	ft_split_free(char **str)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	while (str[i])
@@ -54,10 +54,10 @@ static void ft_split_free(char **str)
 	free(str);
 }
 
-static char *ft_create_word(char const *s, size_t *i, char c)
+static char	*ft_create_word(char const *s, size_t *i, char c)
 {
-	size_t k;
-	char *word;
+	size_t	k;
+	char	*word;
 
 	k = 0;
 	word = (char *)malloc(sizeof(char) * (ft_count_word_len(s, c, *i) + 1));
@@ -69,20 +69,18 @@ static char *ft_create_word(char const *s, size_t *i, char c)
 	return (word);
 }
 
-char **ft_split(char const *s, char c)
+char		**ft_split(char const *s, char c)
 {
 	char **str;
 	size_t i;
 	size_t j;
 
-	i = -1;
+	i = 0;
 	j = 0;
 	if (!s)
 		return (0);
 	str = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
-	if (!str)
-		return (0);
-	while (s[++i])
+	while (s[i])
 	{
 		if (s[i] != c)
 		{
@@ -93,6 +91,8 @@ char **ft_split(char const *s, char c)
 				return (0);
 			}
 		}
+		else
+			i++;
 	}
 	str[j] = 0;
 	return (str);

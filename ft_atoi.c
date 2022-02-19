@@ -6,17 +6,17 @@
 /*   By: jaewokim <jaewokim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:43:05 by jaewokim          #+#    #+#             */
-/*   Updated: 2022/02/05 10:43:06 by jaewokim         ###   ########.fr       */
+/*   Updated: 2022/02/19 09:01:26 by jaewokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
-	int i;
-	int sign;
-	long n;
+	int		i;
+	int		sign;
+	long	n;
 
 	i = 0;
 	sign = 1;
@@ -34,5 +34,5 @@ int ft_atoi(const char *nptr)
 		n = n * 10 + (nptr[i] - '0');
 		i++;
 	}
-	return (int)(n * sign);
+	return	(int)(n * sign);
 }
