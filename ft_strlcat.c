@@ -6,7 +6,7 @@
 /*   By: jaewokim <jaewokim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:49:43 by jaewokim          #+#    #+#             */
-/*   Updated: 2022/02/05 10:49:44 by jaewokim         ###   ########.fr       */
+/*   Updated: 2022/02/19 10:31:11 by jaewokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t i;
-	size_t j;
-	size_t src_len;
-	size_t dst_len;
+	size_t	i;
+	size_t	j;
+	size_t	src_len;
+	size_t	dst_len;
 
 	j = 0;
 	dst_len = ft_strlen(dst);

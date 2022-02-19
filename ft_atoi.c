@@ -6,7 +6,7 @@
 /*   By: jaewokim <jaewokim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:43:05 by jaewokim          #+#    #+#             */
-/*   Updated: 2022/02/19 09:01:26 by jaewokim         ###   ########.fr       */
+/*   Updated: 2022/02/19 10:26:35 by jaewokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ int	ft_atoi(const char *nptr)
 		n = n * 10 + (nptr[i] - '0');
 		i++;
 	}
-	return	(int)(n * sign);
+	return ((int)(n * sign));
 }

@@ -6,7 +6,7 @@
 /*   By: jaewokim <jaewokim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:48:07 by jaewokim          #+#    #+#             */
-/*   Updated: 2022/02/05 10:48:09 by jaewokim         ###   ########.fr       */
+/*   Updated: 2022/02/19 10:30:37 by jaewokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,11 @@ static char	*ft_create_word(char const *s, size_t *i, char c)
 	return (word);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	char **str;
-	size_t i;
-	size_t j;
+	char	**str;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	j = 0;
