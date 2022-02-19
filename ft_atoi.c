@@ -33,6 +33,10 @@ int	ft_atoi(const char *nptr)
 	{
 		n = n * 10 + (nptr[i] - '0');
 		i++;
+		if (n > 2147483647 && sign == 1)
+			return (-1);
+		if (n > 2147483648 && sign == -1)
+			return (0);
 	}
 	return ((int)(n * sign));
 }
