@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int		i;
-	int		sign;
-	long	n;
+	int				i;
+	int				sign;
+	unsigned long	n;
 
 	i = 0;
 	sign = 1;
