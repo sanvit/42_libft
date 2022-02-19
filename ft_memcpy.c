@@ -16,10 +16,10 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	unsigned char	*dst_copy;
 	unsigned char	*src_copy;
 
-	if (!dst || !src)
-		return (0);
 	dst_copy = (unsigned char *)dst;
 	src_copy = (unsigned char *)src;
+	if (!dst || !src)
+		return (0);
 	while (n--)
 		*dst_copy++ = *src_copy++;
 	return (dst);
