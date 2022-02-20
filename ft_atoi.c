@@ -6,7 +6,7 @@
 /*   By: jaewokim <jaewokim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:43:05 by jaewokim          #+#    #+#             */
-/*   Updated: 2022/02/19 10:26:35 by jaewokim         ###   ########.fr       */
+/*   Updated: 2022/02/20 23:39:45 by jaewokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int				i;
-	int				sign;
-	unsigned long	n;
+	int					i;
+	int					sign;
+	unsigned long long	n;
 
 	i = 0;
 	sign = 1;
@@ -33,9 +33,9 @@ int	ft_atoi(const char *nptr)
 	{
 		n = n * 10 + (nptr[i] - '0');
 		i++;
-		if (n > 2147483647 && sign == 1)
+		if (n > 9223372036854775807UL && sign == 1)
 			return (-1);
-		if (n > 2147483648 && sign == -1)
+		if (n > 9223372036854775808UL && sign == -1)
 			return (0);
 	}
 	return ((int)(n * sign));
