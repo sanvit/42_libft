@@ -6,7 +6,7 @@
 /*   By: jaewokim <jaewokim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 00:37:17 by jaewokim          #+#    #+#             */
-/*   Updated: 2022/02/19 10:36:06 by jaewokim         ###   ########.fr       */
+/*   Updated: 2022/02/20 23:21:02 by jaewokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t n);
 void				*ft_memset(void *b, int c, size_t len);
 char				*ft_strchr(const char *s, int c);
+char				*ft_strrchr(const char *s, int c);
 char				*ft_strdup(const char *s);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 size_t				ft_strlcpy(char *dst, const char *src, size_t size);
