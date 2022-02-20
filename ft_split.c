@@ -6,7 +6,7 @@
 /*   By: jaewokim <jaewokim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 10:48:07 by jaewokim          #+#    #+#             */
-/*   Updated: 2022/02/19 10:30:37 by jaewokim         ###   ########.fr       */
+/*   Updated: 2022/02/20 14:47:13 by jaewokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ static int	ft_count_words(char const *s, char c)
 	unsigned int	i;
 	char			prev;
 
+	if (!s)
+		return (0);
 	i = 0;
-	num = 0;
+	num = 1;
 	prev = c;
 	while (s[i])
 	{
@@ -77,9 +79,9 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	j = 0;
-	if (!s)
+	str = (char **)malloc(sizeof(char *) * ft_count_words(s, c));
+	if (!s || !str)
 		return (0);
-	str = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	while (s[i])
 	{
 		if (s[i] != c)
